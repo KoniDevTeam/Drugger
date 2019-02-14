@@ -1,9 +1,20 @@
 <resources>
-    <string name="title_home">Drugger</string>
+    <string name="title_home" translatable="false">Drugger</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_add_trip">Add trip</string>
+    <string name="title_add_trip">Plan trip</string>
     <string name="title_drug_wiki">DrugWiki</string>
     <string name="title_history">History</string>
     <string name="title_forum">Forum</string>
+    <string name="dose_miligrams" translatable="false">mg</string>
+    <string name="dose_mililitr" translatable="false">ml</string>
+    <string name="dose_wheel">pill</string>
+    <string name="dose_wheels_1">pills</string>
+    <string name="dose_wheels_2">pills</string>
+    <string name="dose_road">road</string>
+    <string name="dose_roads">roads</string>
+    <string name="dose_joint">joint</string>
+    <string name="dose_joints">joints</string>
+    <string name="dose_roads_2">roads</string>
+    <string name="dose_joints_2">joints</string>
 </resources>
