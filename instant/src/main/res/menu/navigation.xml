@@ -11,9 +11,11 @@
             <!--android:icon="@drawable/ic_dashboard_black_24dp"-->
             <!--android:title="@string/title_dashboard"/>-->
     
-    <item
-            android:id="@+id/navigation_add_trip"
-            android:icon="@android:drawable/ic_input_add"
-            android:title="@string/title_add_trip"/>
+    <item android:id="@+id/navigation_drug_wiki" android:title="@string/title_drug_wiki"
+          android:icon="@android:drawable/ic_menu_help"/>
+    <item android:title="@string/title_history" android:id="@+id/navigation_history"
+          android:icon="@android:drawable/ic_menu_recent_history"/>
+    <item android:title="@string/title_forum" android:id="@+id/navigation_forum"
+          android:icon="@android:drawable/stat_notify_chat"/>
 
 </menu>
