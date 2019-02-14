@@ -10,31 +10,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-//    private fun changeView(view: LinearLayout, targetView: Any): Unit {
-//        var _view = view
-//        _view = targetView as LinearLayout;
-//    }
-
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
                 this.setTitle(R.string.title_home)
+                innerView.removeAllViews()
+//                innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_drug_wiki -> {
                 this.setTitle(R.string.title_drug_wiki)
-//                changeView(innerView, findViewById(R.id.view_add))
-//                this.innerView = findViewById()
+                innerView.removeAllViews()
+                innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_history -> {
                 this.setTitle(R.string.title_history)
-
+                innerView.removeAllViews()
+//                innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_forum -> {
                 this.setTitle(R.string.title_forum)
-
+                innerView.removeAllViews()
+//                innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
                 return@OnNavigationItemSelectedListener true
             }
         }
