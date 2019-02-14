@@ -17,7 +17,7 @@
 			app:layout_constraintBottom_toBottomOf="@+id/innerView" android:layout_marginEnd="8dp"
 			app:layout_constraintEnd_toEndOf="@+id/innerView" app:backgroundTint="@color/colorPrimary"
 			app:maxImageSize="@android:dimen/app_icon_size"
-			app:fabSize="normal"/>
+			app:fabSize="normal" android:focusable="true"/>
 	<LinearLayout
 			android:orientation="vertical"
 			android:layout_width="match_parent"
