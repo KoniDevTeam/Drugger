@@ -5,25 +5,24 @@
                              android:layout_height="match_parent"
                              android:id="@+id/view_add" android:orientation="vertical" android:gravity="top">
 	<TextView
-			android:text="TextView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView4" app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="0dp"
-			android:layout_marginStart="0dp" tools:text="@tools:sample/date/ddmmyy"/>
+			android:layout_marginStart="0dp" android:text="@string/app_name"/>
 	<TextView
-			android:text="TextView"
+			android:text="@android:string/dialog_alert_title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView5" android:layout_marginTop="20dp"
 			app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toEndOf="@+id/textView4"
-			android:layout_marginStart="20dp" tools:text="@tools:sample/lorem"/>
+			android:layout_marginStart="20dp"/>
 	<TextView
-			android:text="TextView"
+			android:text="@android:string/search_go"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView6"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="40dp"
-			tools:text="@tools:sample/cities" android:layout_marginTop="20dp"/>
+			android:layout_marginTop="20dp"/>
 </android.widget.LinearLayout>

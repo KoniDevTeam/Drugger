@@ -2,16 +2,16 @@
 <resources>
     <string name="title_dashboard">Стрічка</string>
     <string name="title_notifications">Повідомлення</string>
-    <string name="title_add_trip">Заплонувати тріп</string>
+    <string name="title_add_trip">Запланувати тріп</string>
     <string name="title_drug_wiki">НаркоВікі</string>
     <string name="title_forum">Форум</string>
     <string name="title_history">Історія</string>
-    <string name="dose_wheel">Таблетка</string>
-    <string name="dose_wheels_1">Таблетки</string>
-    <string name="dose_wheels_2">Таблеток</string>
-    <string name="dose_road">Доріжка</string>
-    <string name="dose_roads">Доріжки</string>
-    <string name="dose_roads_2">Доріжек</string>
+    <string name="dose_wheel">таблетка</string>
+    <string name="dose_wheels">таблетки</string>
+    <string name="dose_wheels_2">таблеток</string>
+    <string name="dose_road">доріжка</string>
+    <string name="dose_roads">доріжки</string>
+    <string name="dose_roads_2">доріжек</string>
     <string name="dose_joint">косяк</string>
     <string name="dose_joints">косяка</string>
     <string name="dose_joints_2">косяків</string>
