@@ -9,7 +9,7 @@
     <string name="dose_miligrams" translatable="false">mg</string>
     <string name="dose_mililitr" translatable="false">ml</string>
     <string name="dose_wheel">pill</string>
-    <string name="dose_wheels_1">pills</string>
+    <string name="dose_wheels">pills</string>
     <string name="dose_wheels_2">pills</string>
     <string name="dose_road">road</string>
     <string name="dose_roads">roads</string>
