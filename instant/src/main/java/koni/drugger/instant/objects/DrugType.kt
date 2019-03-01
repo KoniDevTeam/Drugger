@@ -9,15 +9,17 @@ data class DrugType(
     val doseMaxOnce: Double,
     val doseMaxPerDay: Double,
     val doseUnit: String,
-    val overdoseSymptoms: String?,
-    val overdoseAction: String?,
+    val overdoseSymptoms:  Array<String>,
+    val overdoseAction:  Array<String>,
     val drugEffects: Array<String>,
     val group: String?,
-    val contraindications: String?,
+    val contraindications:  Array<String>,
     val combinationsGood: Array<Int>,
     val combinationsBad: Array<Int>,
     val banLevel: String?,
-    val doseMaxLegal: String?
+    val doseMaxLegal: Double,
+    val activeSubstance: String?,
+    val timestamp: Int
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -31,15 +33,17 @@ data class DrugType(
         if (doseMaxOnce != other.doseMaxOnce) return false
         if (doseMaxPerDay != other.doseMaxPerDay) return false
         if (doseUnit != other.doseUnit) return false
-        if (overdoseSymptoms != other.overdoseSymptoms) return false
-        if (overdoseAction != other.overdoseAction) return false
+        if (!Arrays.equals(overdoseSymptoms, other.overdoseSymptoms)) return false
+        if (!Arrays.equals(overdoseAction, other.overdoseAction)) return false
         if (!Arrays.equals(drugEffects, other.drugEffects)) return false
         if (group != other.group) return false
-        if (contraindications != other.contraindications) return false
+        if (!Arrays.equals(contraindications, other.contraindications)) return false
         if (!Arrays.equals(combinationsGood, other.combinationsGood)) return false
         if (!Arrays.equals(combinationsBad, other.combinationsBad)) return false
         if (banLevel != other.banLevel) return false
         if (doseMaxLegal != other.doseMaxLegal) return false
+        if (activeSubstance != other.activeSubstance) return false
+        if (timestamp != other.timestamp) return false
 
         return true
     }
@@ -51,15 +55,17 @@ data class DrugType(
         result = 31 * result + doseMaxOnce.hashCode()
         result = 31 * result + doseMaxPerDay.hashCode()
         result = 31 * result + doseUnit.hashCode()
-        result = 31 * result + (overdoseSymptoms?.hashCode() ?: 0)
-        result = 31 * result + (overdoseAction?.hashCode() ?: 0)
+        result = 31 * result + Arrays.hashCode(overdoseSymptoms)
+        result = 31 * result + Arrays.hashCode(overdoseAction)
         result = 31 * result + Arrays.hashCode(drugEffects)
         result = 31 * result + (group?.hashCode() ?: 0)
-        result = 31 * result + (contraindications?.hashCode() ?: 0)
+        result = 31 * result + Arrays.hashCode(contraindications)
         result = 31 * result + Arrays.hashCode(combinationsGood)
         result = 31 * result + Arrays.hashCode(combinationsBad)
         result = 31 * result + (banLevel?.hashCode() ?: 0)
-        result = 31 * result + (doseMaxLegal?.hashCode() ?: 0)
+        result = 31 * result + doseMaxLegal.hashCode()
+        result = 31 * result + (activeSubstance?.hashCode() ?: 0)
+        result = 31 * result + timestamp
         return result
     }
 }
