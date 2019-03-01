@@ -46,3 +46,16 @@ fun updateDb(context: Context) {
         editor.apply()
     }
 }
+
+fun getAllDrugs(context: Context): List<DrugType> {
+    val sharedPref = context.getSharedPreferences(APP_PREF_NAME, Context.MODE_PRIVATE)
+    return jacksonObjectMapper().readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, ""))
+}
+
+fun getDrug(context: Context, id: Int): DrugType {
+    val drugs: List<DrugType> = getAllDrugs(context)
+    for (drug in drugs) {
+        if (drug.id == id)
+            return drug
+    }
+}
