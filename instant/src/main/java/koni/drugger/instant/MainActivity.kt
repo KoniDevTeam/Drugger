@@ -1,20 +1,22 @@
 package koni.drugger.instant
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
-import android.text.Layout
-import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
-    private val addTripOnclick = View.OnClickListener { _it ->
-        println("АЛ₴Є!!")
-        _it.alpha = 0.2f
+    private val addTripOnclick = View.OnClickListener {
+        //        view.visibility = View.INVISIBLE
+        val addTripIntent = Intent(this, AddTripActivity::class.java)
+        startActivity(addTripIntent)
+//        this.setTitle(R.string.title_add_trip)
+//        innerView.removeAllViews()
+//        innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_drug_wiki -> {
                 this.setTitle(R.string.title_drug_wiki)
                 innerView.removeAllViews()
-                innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
+                //innerView.addView(layoutInflater.inflate(R.layout.activity_add, null))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_history -> {

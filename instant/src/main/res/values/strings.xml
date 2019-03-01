@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name" translatable="false">Drugger</string>
     <string name="title_home" translatable="false">Drugger</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
