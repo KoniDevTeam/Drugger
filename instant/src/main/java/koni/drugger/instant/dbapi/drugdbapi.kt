@@ -1,0 +1,48 @@
+package koni.drugger.instant.dbapi
+
+import android.content.Context
+import com.fasterxml.jackson.module.kotlin.*
+import koni.drugger.instant.objects.DrugType
+import org.jetbrains.anko.doAsync
+import java.net.URL
+
+val APP_PREF_NAME = "drugger"
+val LAST_CHANGE_TIME_SHARED_FREF_NAME = "last_change_time"
+val DRUG_DB_JSON_SHARED_FREF_NAME = "drugsjson"
+
+val API_URL = "http://itgrusha.com/node/junkies/"
+
+private fun getDbChanges(context: Context, timestamp: Long): String {
+    var result: String = ""
+    context.doAsync {
+        result = URL(API_URL + "update_db?timestamp=" + timestamp).readText()
+    }
+    return result
+}
+
+fun updateDb(context: Context) {
+    val sharedPref = context.getSharedPreferences(APP_PREF_NAME, Context.MODE_PRIVATE)
+    val timestamp: Long = sharedPref.getLong(LAST_CHANGE_TIME_SHARED_FREF_NAME, 0)
+
+    val dbChangesJson: String = getDbChanges(context, timestamp)
+
+    val mapper = jacksonObjectMapper()
+    val drugsupdate: List<DrugType> = mapper.readValue(dbChangesJson)
+    if (drugsupdate.isNotEmpty()) {
+        val olddrugs: MutableList<DrugType> = mapper.readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, ""))
+
+        drugsupdate.forEach { new ->
+            val it = olddrugs.listIterator()
+            while (it.hasNext()) {
+                if (it.next().id == new.id) {
+                    it.set(new)
+                }
+            }
+        }
+
+        val editor = sharedPref.edit()
+        editor.putString(DRUG_DB_JSON_SHARED_FREF_NAME, mapper.writeValueAsString(olddrugs))
+        editor.putLong(LAST_CHANGE_TIME_SHARED_FREF_NAME, System.currentTimeMillis()/1000)
+        editor.apply()
+    }
+}
