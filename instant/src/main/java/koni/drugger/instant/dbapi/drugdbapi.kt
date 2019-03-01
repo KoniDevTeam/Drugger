@@ -6,14 +6,14 @@ import koni.drugger.instant.objects.DrugType
 import org.jetbrains.anko.doAsync
 import java.net.URL
 
-val APP_PREF_NAME = "drugger"
-val LAST_CHANGE_TIME_SHARED_FREF_NAME = "last_change_time"
-val DRUG_DB_JSON_SHARED_FREF_NAME = "drugsjson"
+const val APP_PREF_NAME = "drugger"
+const val LAST_CHANGE_TIME_SHARED_FREF_NAME = "last_change_time"
+const val DRUG_DB_JSON_SHARED_FREF_NAME = "drugsjson"
 
-val API_URL = "http://itgrusha.com/node/junkies/"
+const val API_URL = "http://itgrusha.com/node/junkies/"
 
 private fun getDbChanges(context: Context, timestamp: Long): String {
-    var result: String = ""
+    var result = ""
     context.doAsync {
         result = URL(API_URL + "update_db?timestamp=" + timestamp).readText()
     }
