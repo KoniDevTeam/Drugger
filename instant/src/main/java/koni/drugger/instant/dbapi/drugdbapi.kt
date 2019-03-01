@@ -1,6 +1,7 @@
 package koni.drugger.instant.dbapi
 
 import android.content.Context
+import android.content.res.Resources
 import com.fasterxml.jackson.module.kotlin.*
 import koni.drugger.instant.objects.DrugType
 import org.jetbrains.anko.doAsync
@@ -58,4 +59,5 @@ fun getDrug(context: Context, id: Int): DrugType {
         if (drug.id == id)
             return drug
     }
+    throw Resources.NotFoundException(id.toString())
 }
