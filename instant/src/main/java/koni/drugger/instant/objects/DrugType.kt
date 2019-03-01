@@ -17,7 +17,9 @@ data class DrugType(
     val combinationsGood: Array<Int>,
     val combinationsBad: Array<Int>,
     val banLevel: String?,
-    val doseMaxLegal: Double
+    val doseMaxLegal: Double,
+    val activeSubstance: String?,
+    val timestamp: Int
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -40,6 +42,8 @@ data class DrugType(
         if (!Arrays.equals(combinationsBad, other.combinationsBad)) return false
         if (banLevel != other.banLevel) return false
         if (doseMaxLegal != other.doseMaxLegal) return false
+        if (activeSubstance != other.activeSubstance) return false
+        if (timestamp != other.timestamp) return false
 
         return true
     }
@@ -60,6 +64,8 @@ data class DrugType(
         result = 31 * result + Arrays.hashCode(combinationsBad)
         result = 31 * result + (banLevel?.hashCode() ?: 0)
         result = 31 * result + doseMaxLegal.hashCode()
+        result = 31 * result + (activeSubstance?.hashCode() ?: 0)
+        result = 31 * result + timestamp
         return result
     }
 }
