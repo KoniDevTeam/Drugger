@@ -1,8 +1,12 @@
 package koni.drugger.instant
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
@@ -52,10 +56,25 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
+    private fun askPermission(perm: String) {
+        if (ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    perm)) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                    arrayOf(perm),
+                    666)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addTripButton.setOnClickListener(addTripOnclick)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        askPermission(Manifest.permission.INTERNET)
+        askPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 }
