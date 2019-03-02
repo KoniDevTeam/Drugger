@@ -30,7 +30,7 @@ fun updateDb(context: Context) {
     val mapper = jacksonObjectMapper()
     val drugsupdate: List<DrugType> = mapper.readValue(dbChangesJson)
     if (drugsupdate.isNotEmpty()) {
-        val olddrugs: MutableList<DrugType> = mapper.readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, ""))
+        val olddrugs: MutableList<DrugType> = mapper.readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, "[]"))
 
         drugsupdate.forEach { new ->
             val it = olddrugs.listIterator()
@@ -50,7 +50,7 @@ fun updateDb(context: Context) {
 
 fun getAllDrugs(context: Context): List<DrugType> {
     val sharedPref = context.getSharedPreferences(APP_PREF_NAME, Context.MODE_PRIVATE)
-    return jacksonObjectMapper().readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, ""))
+    return jacksonObjectMapper().readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, "[]"))
 }
 
 fun getDrug(context: Context, id: Int): DrugType {
