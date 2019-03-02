@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
             android:id="@+id/navigation_dashboard"
@@ -10,12 +10,12 @@
             <!--android:id="@+id/navigation_dashboard"-->
             <!--android:icon="@drawable/ic_dashboard_black_24dp"-->
             <!--android:title="@string/title_dashboard"/>-->
-    
+
     <item android:id="@+id/navigation_drug_wiki" android:title="@string/title_drug_wiki"
-          android:icon="@drawable/help"/>
+          android:icon="@drawable/help_outline"/>
     <item android:title="@string/title_history" android:id="@+id/navigation_history"
           android:icon="@drawable/history"/>
     <item android:title="@string/title_forum" android:id="@+id/navigation_forum"
-          android:icon="@drawable/forum"/>
+          android:icon="@drawable/forum_outline"/>
 
 </menu>

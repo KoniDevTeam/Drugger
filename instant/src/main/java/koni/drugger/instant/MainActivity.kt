@@ -20,14 +20,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        bottomNavigation.menu.findItem(R.id.navigation_dashboard).icon = getDrawable(R.drawable.dashboard_outline)
+        bottomNavigation.menu.findItem(R.id.navigation_drug_wiki).icon = getDrawable(R.drawable.help_outline)
+        bottomNavigation.menu.findItem(R.id.navigation_forum).icon = getDrawable(R.drawable.forum_outline)
         when (item.itemId) {
             R.id.navigation_dashboard -> {
                 this.setTitle(R.string.title_home)
+                item.icon = getDrawable(R.drawable.dashboard)
                 innerView.removeAllViews()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_drug_wiki -> {
                 this.setTitle(R.string.title_drug_wiki)
+                item.icon = getDrawable(R.drawable.help)
                 innerView.removeAllViews()
                 //innerView.addView(layoutInflater.inflate(R.layout.activity_add, null))
                 return@OnNavigationItemSelectedListener true
@@ -39,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_forum -> {
                 this.setTitle(R.string.title_forum)
+                item.icon = getDrawable(R.drawable.forum)
                 innerView.removeAllViews()
                 return@OnNavigationItemSelectedListener true
             }

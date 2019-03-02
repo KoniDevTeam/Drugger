@@ -16,7 +16,7 @@ const val API_URL = "http://itgrusha.com/node/junkies/"
 private fun getDbChanges(context: Context, timestamp: Long): String {
     var result = ""
     context.doAsync {
-        result = URL(API_URL + "update_db?timestamp=" + timestamp).readText()
+        result = URL(API_URL + "db_changes?timestamp=" + timestamp).readText()
     }
     return result
 }
