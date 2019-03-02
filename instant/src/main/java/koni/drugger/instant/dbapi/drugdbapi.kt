@@ -2,6 +2,7 @@ package koni.drugger.instant.dbapi
 
 import android.content.Context
 import android.content.res.Resources
+import android.util.Log
 import com.fasterxml.jackson.module.kotlin.*
 import koni.drugger.instant.objects.DrugType
 import org.jetbrains.anko.doAsync
@@ -14,10 +15,10 @@ const val DRUG_DB_JSON_SHARED_FREF_NAME = "drugsjson"
 const val API_URL = "http://itgrusha.com/node/junkies/"
 
 private fun getDbChanges(context: Context, timestamp: Long): String {
-    var result = ""
-    context.doAsync {
-        result = URL(API_URL + "db_changes?timestamp=" + timestamp).readText()
-    }
+    val reqsender = HttpReqSender()
+    reqsender.execute(API_URL + "db_changes?timestamp=" + timestamp, "GET", "DruggerApp")
+    val result = reqsender.get()
+
     return result
 }
 
