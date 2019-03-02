@@ -17,7 +17,7 @@ class AddTripActivity : AppCompatActivity() {
         updateDb(this)
         val drugs = getAllDrugs(this)
         drugs.forEachIndexed { index, drugType ->
-            println("hello")
+            println("hello!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             if (index.rem(2) == 0){
                 println("1")
             } else
