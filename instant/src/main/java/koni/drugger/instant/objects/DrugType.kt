@@ -10,8 +10,8 @@ data class DrugType(
     val doseMaxPerDay: Double,
     val doseUnit: String,
     val overdoseSymptoms:  Array<String>,
-    val overdoseAction:  Array<String>,
-    val drugEffects: Array<String>,
+    val overdoseActions:  Array<String>,
+    val drugEffect: Array<String>,
     val group: String?,
     val contraindications:  Array<String>,
     val combinationsGood: Array<Int>,
@@ -19,6 +19,7 @@ data class DrugType(
     val banLevel: String?,
     val doseMaxLegal: Double,
     val activeSubstance: String?,
+    val imageURL: String?,
     val timestamp: Int
 ) {
     override fun equals(other: Any?): Boolean {
@@ -34,8 +35,8 @@ data class DrugType(
         if (doseMaxPerDay != other.doseMaxPerDay) return false
         if (doseUnit != other.doseUnit) return false
         if (!Arrays.equals(overdoseSymptoms, other.overdoseSymptoms)) return false
-        if (!Arrays.equals(overdoseAction, other.overdoseAction)) return false
-        if (!Arrays.equals(drugEffects, other.drugEffects)) return false
+        if (!Arrays.equals(overdoseActions, other.overdoseActions)) return false
+        if (!Arrays.equals(drugEffect, other.drugEffect)) return false
         if (group != other.group) return false
         if (!Arrays.equals(contraindications, other.contraindications)) return false
         if (!Arrays.equals(combinationsGood, other.combinationsGood)) return false
@@ -56,8 +57,8 @@ data class DrugType(
         result = 31 * result + doseMaxPerDay.hashCode()
         result = 31 * result + doseUnit.hashCode()
         result = 31 * result + Arrays.hashCode(overdoseSymptoms)
-        result = 31 * result + Arrays.hashCode(overdoseAction)
-        result = 31 * result + Arrays.hashCode(drugEffects)
+        result = 31 * result + Arrays.hashCode(overdoseActions)
+        result = 31 * result + Arrays.hashCode(drugEffect)
         result = 31 * result + (group?.hashCode() ?: 0)
         result = 31 * result + Arrays.hashCode(contraindications)
         result = 31 * result + Arrays.hashCode(combinationsGood)
