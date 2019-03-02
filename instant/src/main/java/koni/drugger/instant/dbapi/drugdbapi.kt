@@ -28,6 +28,9 @@ fun updateDb(context: Context) {
 
     val dbChangesJson: String = getDbChanges(context, timestamp)
 
+    if (dbChangesJson == "<EXC>")
+        return
+
     val mapper = jacksonObjectMapper()
     val drugsupdate: List<DrugType> = mapper.readValue(dbChangesJson)
     if (drugsupdate.isNotEmpty()) {

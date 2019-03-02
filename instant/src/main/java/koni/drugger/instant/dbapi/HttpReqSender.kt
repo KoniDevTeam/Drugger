@@ -33,8 +33,8 @@ class HttpReqSender : AsyncTask<String, Void, String>() {
             return response.toString()
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.e("TAG", "Fatal error!" + e.toString())
-            return ""
+            Log.e("TAG", "Error: " + e.toString())
+            return "<EXC>"
         }
 
     }
