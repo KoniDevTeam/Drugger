@@ -34,12 +34,16 @@ fun updateDb(context: Context) {
         val olddrugs: MutableList<DrugType> = mapper.readValue(sharedPref.getString(DRUG_DB_JSON_SHARED_FREF_NAME, "[]"))
 
         drugsupdate.forEach { new ->
+            var changed = false
             val it = olddrugs.listIterator()
             while (it.hasNext()) {
                 if (it.next().id == new.id) {
                     it.set(new)
+                    changed = true
                 }
             }
+            if (!changed)
+                olddrugs.add(new)
         }
 
         val editor = sharedPref.edit()
