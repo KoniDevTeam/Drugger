@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
+            R.id.navigation_dashboard -> {
                 this.setTitle(R.string.title_home)
                 innerView.removeAllViews()
                 return@OnNavigationItemSelectedListener true
