@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:custom="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:id="@+id/constraightLayout"
+                                             android:padding="8dp"
+                                             android:layout_gravity="center" android:clipToPadding="false">
+
+    <ImageView android:contentDescription="LoL"
+               android:layout_height="90dp"
+               android:id="@+id/imageView"
+               custom:layout_constraintTop_toTopOf="parent"
+               custom:layout_constraintStart_toStartOf="parent"
+               custom:srcCompat="@drawable/logo_16x9"
+               android:layout_width="160dp"
+               custom:layout_constraintEnd_toEndOf="parent"
+               android:elevation="6dp"
+               android:background="@drawable/background_rounded"
+    />
+    <TextView
+            android:id="@+id/drug_title"
+            style="android:@style/view_tile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            custom:layout_constraintBottom_toBottomOf="@+id/imageView"
+            custom:layout_constraintLeft_toLeftOf="@+id/imageView"
+            custom:layout_constraintRight_toRightOf="@+id/imageView"
+            android:textColor="@color/colorAccent"
+            android:elevation="7dp"/>
+
+</android.support.constraint.ConstraintLayout>

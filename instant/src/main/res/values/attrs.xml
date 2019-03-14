@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TileView">
+        <attr name="view_tile_title" format="reference" />
+        <attr name="view_tile_drug_id" format="integer" />
+    </declare-styleable>
+</resources>

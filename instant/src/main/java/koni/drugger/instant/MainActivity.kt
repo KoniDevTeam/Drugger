@@ -1,6 +1,7 @@
 package koni.drugger.instant
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -9,15 +10,35 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import koni.drugger.instant.view.TileView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.view_tile.view.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    private val CHOOSE_DRUG = 0
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        val tv = findViewById<TileView>(R.id.tmp_tile_view).drug_title
+        findViewById<TileView>(R.id.tmp_tile_view).imageView.clipToOutline = true
+//        println("OHH! I`d been called!!!!!!!!!!!!!!!!!")
+        if (requestCode == CHOOSE_DRUG){
+//            println("OHH! Condition is cool!!!!!!!!!!!!!!!!!")
+            if (resultCode == Activity.RESULT_OK){
+//                println("AWWW YESSS!!!!!!!!!!!!!!!!!")
+                var drugId = data!!.getIntExtra(DRUG_ID, 0)
+                tv.text = drugId.toString()
+            }
+        }
+    }
+
     private val addTripOnclick = View.OnClickListener {
         //        view.visibility = View.INVISIBLE
         val addTripIntent = Intent(this, AddTripActivity::class.java)
-        startActivity(addTripIntent)
+        startActivityForResult(addTripIntent, CHOOSE_DRUG)
 //        this.setTitle(R.string.title_add_trip)
 //        innerView.removeAllViews()
 //        innerView.addView(layoutInflater.inflate(R.layout.view_add, null))
