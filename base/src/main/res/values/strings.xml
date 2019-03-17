@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">drugger</string>
+    <string name="app_name">Drugger</string>
+    <string name="title_add_trip">Plan trip</string>
 </resources>
